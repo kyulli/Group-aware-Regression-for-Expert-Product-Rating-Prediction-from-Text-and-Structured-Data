@@ -1,0 +1,19 @@
+name: coffee_review_env
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - nltk
+  - jupyter
+  - notebook
+  - pip
+  - pip:
+      - xgboost
+      - shap

@@ -1,0 +1,5 @@
+Model,Mean Test RMSE,Std Test RMSE,Mean Baseline RMSE,Avg Improvement (%),Best Params
+Ridge,0.8934749493880763,0.05872559006001117,1.4762914383119277,39.47841691680307,"{'ridge__alpha': np.float64(1.0), 'ridge__max_iter': 1000}"
+ElasticNet,0.8904811213185706,0.06246365716565739,1.4762914383119277,39.68121075491738,"{'elasticnet__alpha': np.float64(0.001), 'elasticnet__l1_ratio': 0.5, 'elasticnet__max_iter': 1000}"
+RandomForest,1.0123975610888383,0.07817057697440793,1.4762914383119277,31.42291997259911,"{'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'sqrt', 'randomforestregressor__min_samples_leaf': 1, 'randomforestregressor__min_samples_split': 5, 'randomforestregressor__n_estimators': 300}"
+SVR,0.8845087818909867,0.0680264417961393,1.4762914383119277,40.08576091842798,"{'svr__C': 10, 'svr__epsilon': 0.2, 'svr__gamma': np.float64(0.06866488450043001), 'svr__kernel': 'rbf'}"
