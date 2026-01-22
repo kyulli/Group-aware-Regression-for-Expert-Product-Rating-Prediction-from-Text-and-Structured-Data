@@ -1,4 +1,4 @@
-# Predicting Coffee Review Ratings Using TF-IDF and Regularized Regression Models
+# Group-aware-Regression-for-Expert-Product-Rating-Prediction-from-Text-and-Structured-Data
 
 This repository contains the full implementation, data processing pipeline, modeling code, and final report for my DATA1030 final project at Brown University. The objective is to predict expert coffee ratings using a combination of cleaned review text (TF-IDF) and structured attributes such as origin, roast level, price, and variety.   The project emphasizes reproducibility with a consistent environment, organized directory structure, and version-controlled experiments.
 
