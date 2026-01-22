@@ -1,6 +1,75 @@
-# Group-aware-Regression-for-Expert-Product-Rating-Prediction-from-Text-and-Structured-Data
+# Predicting Expert Coffee Ratings from Text and Structured Data  
+### Group-Aware Regression and Interpretable Machine Learning
 
-This repository contains the full implementation, data processing pipeline, modeling code, and final report for my DATA1030 final project at Brown University. The objective is to predict expert coffee ratings using a combination of cleaned review text (TF-IDF) and structured attributes such as origin, roast level, price, and variety.   The project emphasizes reproducibility with a consistent environment, organized directory structure, and version-controlled experiments.
+This repository presents an end-to-end applied machine learning project developed as the final project for DATA1030 (Hands-on Data Science) at Brown University. The project focuses on predicting expert coffee ratings by combining unstructured review text with structured product attributes, using group-aware validation and interpretable modeling techniques.
+
+The accompanying PDF report documents the full methodology, empirical results, and model interpretation in detail.
+
+## Project Overview
+
+**Objective**  
+To build a reproducible and interpretable regression pipeline that predicts expert coffee ratings on a 0 to 100 scale, while explicitly addressing non-independent data structure and model leakage.
+
+**Why this matters**  
+Expert product ratings are widely used in consumer decision making but are subjective, expensive, and difficult to scale. This project explores whether supervised learning models can approximate expert evaluations using both textual descriptions and structured product information, while maintaining statistical rigor.
+
+**Key challenges addressed**
+- Non-iid data due to repeated products and shared roasters
+- High-dimensional sparse text features from TF-IDF
+- Model interpretability for both structured and text-based predictors
+- Reproducibility and leakage-safe evaluation
+
+## Data
+
+The dataset is derived from CoffeeReview and publicly available on Kaggle:  
+https://www.kaggle.com/datasets/schmoyote/coffee-reviews-dataset
+
+**Dataset characteristics**
+- 1,246 expert-reviewed specialty coffees (2017 to 2022)
+- Review text written by professional tasters
+- Structured attributes including origin, roast level, and price per 100g
+- Target variable: expert rating score
+
+The raw dataset is not stored in this repository due to size constraints. All preprocessing steps are fully reproducible using the provided notebooks.
+
+## Methodology Highlights
+
+**Feature Engineering**
+- Review text processed with TF-IDF after tokenization, lemmatization, and stop-word removal
+- Categorical variables encoded with one-hot encoding
+- Numeric price feature standardized
+- Missing categorical values explicitly preserved as informative signals
+
+**Data Splitting**
+- GroupShuffleSplit used for train test separation to prevent leakage
+- GroupKFold used for cross-validation during hyperparameter tuning
+- Entire pipeline repeated across multiple random states to assess robustness
+
+**Models Evaluated**
+- Ridge Regression
+- Elastic Net
+- Random Forest Regressor
+- Support Vector Regression
+- XGBoost Regressor with early stopping
+
+**Evaluation**
+- Root Mean Squared Error compared against a baseline predictor
+- Improvement measured relative to baseline RMSE
+- Best-performing model selected based on consistent out-of-sample performance
+
+**Interpretability**
+- Permutation feature importance
+- Partial dependence analysis
+- SHAP for global and local explanations
+
+## Key Results
+
+- Support Vector Regression achieved the strongest and most stable performance across test splits
+- Review text was the dominant predictor, followed by roast level and price
+- Price exhibited a clear positive marginal relationship with predicted rating
+- Certain origins and textual descriptors consistently influenced predictions in interpretable ways
+
+These findings and their implications are discussed in detail in the report.
 
 ## Repository Structure
 
